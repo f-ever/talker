@@ -83,7 +83,73 @@ extension FieldsToDisplay on TalkerData {
 
   String displayTitleWithTime(
       {TimeFormat timeFormat = TimeFormat.timeAndSeconds}) {
-    return '[$title] | ${displayTime(timeFormat: timeFormat)} | ';
+    final titleStr = '[$title]';
+    final timeStr = '[${displayTime(timeFormat: timeFormat)}]';
+
+    // Apply ANSI styles based on logLevel
+    if (logLevel != null) {
+      final titlePen = _getTitlePen(logLevel!);
+      final timePen = _getTimePen();
+      return '${titlePen.write(titleStr)}${timePen.write(timeStr)}';
+    }
+
+    return '$titleStr$timeStr';
+  }
+
+  /// Get styled pen for title based on LogLevel
+  AnsiPen _getTitlePen(LogLevel level) {
+    final pen = AnsiPen();
+
+    switch (level) {
+      case LogLevel.critical:
+        // Bright red background, white text
+        pen
+          ..xterm(15) // Bright white text
+          ..xterm(196, bg: true); // Bright red background
+        break;
+      case LogLevel.error:
+        // Dark red background, white text
+        pen
+          ..xterm(15) // Bright white text
+          ..xterm(88, bg: true); // Dark red background
+        break;
+      case LogLevel.warning:
+        // Orange background, white text
+        pen
+          ..xterm(15) // Bright white text
+          ..xterm(208, bg: true); // Orange background
+        break;
+      case LogLevel.info:
+        // Light green background, black text
+        pen
+          ..xterm(16) // Black text
+          ..xterm(42, bg: true); // Light green background
+        break;
+      case LogLevel.debug:
+        // Cyan background, black text
+        pen
+          ..xterm(16) // Black text
+          ..xterm(51, bg: true); // Cyan background
+        break;
+      case LogLevel.verbose:
+        // Gray background, white text
+        pen
+          ..xterm(15) // Bright white text
+          ..xterm(240, bg: true); // Gray background
+        break;
+    }
+
+    return pen;
+  }
+
+  /// Get styled pen for time - distinctive style for timestamp
+  AnsiPen _getTimePen() {
+    final pen = AnsiPen();
+    // Dark gray background, bright white text
+    pen
+      ..xterm(15) // Bright white text
+      ..xterm(236, bg: true); // Dark gray background
+    return pen;
   }
 
   /// Displayed stackTrace of [TalkerData]

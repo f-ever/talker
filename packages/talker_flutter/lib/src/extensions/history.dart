@@ -7,7 +7,6 @@ extension HistoryListFlutterText on List<TalkerData> {
     for (final data in this) {
       final text = data.generateTextMessage();
       sb.write('$text\n');
-      sb.write(ConsoleUtils.getUnderline(30));
     }
     return sb.toString();
   }
@@ -21,7 +20,6 @@ extension HistoryListFlutterText on List<TalkerData> {
     for (final data in this) {
       final text = data.generateTextMessage(timeFormat: timeFormat);
       sb.write('$text\n');
-      sb.write(ConsoleUtils.getUnderline(30));
     }
     return sb.toString();
   }

@@ -7,17 +7,12 @@ class ColoredLoggerFormatter implements LoggerFormatter {
 
   @override
   String fmt(LogDetails details, TalkerLoggerSettings settings) {
-    final underline = ConsoleUtils.getUnderline(
-      settings.maxLineWidth,
-      lineSymbol: settings.lineSymbol,
-    );
     final msg = details.message?.toString() ?? '';
     if (!settings.enableColors) {
-      return '$msg\n$underline';
+      return msg;
     }
     var lines = msg.split('\n');
     lines = lines.map((e) => details.pen.write(e)).toList();
-    lines.add(details.pen.write(underline));
     final coloredMsg = lines.join('\n');
     return coloredMsg;
   }

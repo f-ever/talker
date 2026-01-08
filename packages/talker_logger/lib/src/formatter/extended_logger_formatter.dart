@@ -7,22 +7,11 @@ class ExtendedLoggerFormatter implements LoggerFormatter {
 
   @override
   String fmt(LogDetails details, TalkerLoggerSettings settings) {
-    final underline = ConsoleUtils.getUnderline(
-      settings.maxLineWidth,
-      lineSymbol: settings.lineSymbol,
-      withCorner: true,
-    );
-    final topline = ConsoleUtils.getTopline(
-      settings.maxLineWidth,
-      lineSymbol: settings.lineSymbol,
-      withCorner: true,
-    );
     final msg = details.message?.toString() ?? '';
-    final msgBorderedLines = msg.split('\n').map((e) => '│ $e');
     if (!settings.enableColors) {
-      return '$topline\n${msgBorderedLines.join('\n')}\n$underline';
+      return msg;
     }
-    var lines = [topline, ...msgBorderedLines, underline];
+    var lines = msg.split('\n');
     lines = lines.map((e) => details.pen.write(e)).toList();
     final coloredMsg = lines.join('\n');
     return coloredMsg;

@@ -11,10 +11,11 @@ environment:
 dependencies:
   grpc: 5.1.0
   talker: ^5.1.9
+  protobuf: ^6.0.0
   talker_grpc_logger:
     path: ../
 
 dev_dependencies:
-  protoc_plugin: ^23.0.0
+  protoc_plugin: ^25.0.0
   lints: ^5.1.1
   test: ^1.24.0

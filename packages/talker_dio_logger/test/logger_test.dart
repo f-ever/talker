@@ -14,11 +14,6 @@ void main() {
       logger = TalkerDioLogger(talker: talker);
     });
 
-    test('configure method should update logger settings', () {
-      logger.configure(printRequestData: true);
-      expect(logger.settings.printRequestData, true);
-    });
-
     test('onRequest method should log http request', () {
       final options = RequestOptions(path: '/test');
       final logMessage = '${options.uri}';

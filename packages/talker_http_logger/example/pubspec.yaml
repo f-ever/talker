@@ -1,21 +1,21 @@
 name: example
 description: "Talker + Http Logger Example"
-publish_to: 'none'
+publish_to: "none"
 version: 1.0.0+1
 
 environment:
   sdk: ^3.0.0
 
 dependencies:
+  equatable: ^2.0.7
   flutter:
     sdk: flutter
   http_interceptor: ^2.0.0
-  talker_http_logger:
-  talker_flutter:
-  equatable: ^2.0.7
+  talker_flutter: null
+  talker_http_logger: null
 
 dev_dependencies:
-  flutter_lints: ^5.1.1
+  flutter_lints: ^6.0.0
 
 dependency_overrides:
   talker_http_logger:

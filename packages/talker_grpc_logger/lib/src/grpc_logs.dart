@@ -16,12 +16,12 @@ const _encoder = JsonEncoder.withIndent('  ');
 class GrpcRequestLog<Q, R> extends TalkerLog {
   /// {@macro grpc_request_log}
   GrpcRequestLog(
-    String title, {
+    String super.title, {
     required this.method,
     required this.request,
     required this.options,
     this.obfuscateToken = true,
-  }) : super(title);
+  });
 
   /// The gRPC method being called.
   final ClientMethod<Q, R> method;
@@ -87,14 +87,14 @@ class GrpcRequestLog<Q, R> extends TalkerLog {
 class GrpcErrorLog<Q, R> extends TalkerLog {
   /// {@macro grpc_error_log}
   GrpcErrorLog(
-    String title, {
+    String super.title, {
     required this.method,
     required this.request,
     required this.options,
     required this.grpcError,
     required this.durationMs,
     this.obfuscateToken = true,
-  }) : super(title);
+  });
 
   /// The gRPC method that failed.
   final ClientMethod<Q, R> method;
@@ -168,11 +168,11 @@ class GrpcErrorLog<Q, R> extends TalkerLog {
 class GrpcResponseLog<Q, R> extends TalkerLog {
   /// {@macro grpc_response_log}
   GrpcResponseLog(
-    String title, {
+    String super.title, {
     required this.method,
     required this.response,
     required this.durationMs,
-  }) : super(title);
+  });
 
   /// The gRPC method that was called.
   final ClientMethod<Q, R> method;

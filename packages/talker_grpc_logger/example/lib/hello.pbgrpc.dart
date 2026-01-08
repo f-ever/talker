@@ -32,36 +32,53 @@ class HelloServiceClient extends $grpc.Client {
 
   HelloServiceClient(super.channel, {super.options, super.interceptors});
 
-  $grpc.ResponseFuture<$0.HelloReply> sayHello($0.HelloRequest request, {$grpc.CallOptions? options,}) {
+  $grpc.ResponseFuture<$0.HelloReply> sayHello(
+    $0.HelloRequest request, {
+    $grpc.CallOptions? options,
+  }) {
     return $createUnaryCall(_$sayHello, request, options: options);
   }
 
-  $grpc.ResponseStream<$0.HelloReply> lotsOfReplies($0.HelloRequest request, {$grpc.CallOptions? options,}) {
-    return $createStreamingCall(_$lotsOfReplies, $async.Stream.fromIterable([request]), options: options);
+  $grpc.ResponseStream<$0.HelloReply> lotsOfReplies(
+    $0.HelloRequest request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createStreamingCall(
+        _$lotsOfReplies, $async.Stream.fromIterable([request]),
+        options: options);
   }
 
-  $grpc.ResponseFuture<$0.HelloReply> lotsOfGreetings($async.Stream<$0.HelloRequest> request, {$grpc.CallOptions? options,}) {
-    return $createStreamingCall(_$lotsOfGreetings, request, options: options).single;
+  $grpc.ResponseFuture<$0.HelloReply> lotsOfGreetings(
+    $async.Stream<$0.HelloRequest> request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createStreamingCall(_$lotsOfGreetings, request, options: options)
+        .single;
   }
 
-  $grpc.ResponseStream<$0.HelloReply> bidiHello($async.Stream<$0.HelloRequest> request, {$grpc.CallOptions? options,}) {
+  $grpc.ResponseStream<$0.HelloReply> bidiHello(
+    $async.Stream<$0.HelloRequest> request, {
+    $grpc.CallOptions? options,
+  }) {
     return $createStreamingCall(_$bidiHello, request, options: options);
   }
 
-    // method descriptors
+  // method descriptors
 
   static final _$sayHello = $grpc.ClientMethod<$0.HelloRequest, $0.HelloReply>(
       '/HelloService/sayHello',
       ($0.HelloRequest value) => value.writeToBuffer(),
       $0.HelloReply.fromBuffer);
-  static final _$lotsOfReplies = $grpc.ClientMethod<$0.HelloRequest, $0.HelloReply>(
-      '/HelloService/LotsOfReplies',
-      ($0.HelloRequest value) => value.writeToBuffer(),
-      $0.HelloReply.fromBuffer);
-  static final _$lotsOfGreetings = $grpc.ClientMethod<$0.HelloRequest, $0.HelloReply>(
-      '/HelloService/lotsOfGreetings',
-      ($0.HelloRequest value) => value.writeToBuffer(),
-      $0.HelloReply.fromBuffer);
+  static final _$lotsOfReplies =
+      $grpc.ClientMethod<$0.HelloRequest, $0.HelloReply>(
+          '/HelloService/LotsOfReplies',
+          ($0.HelloRequest value) => value.writeToBuffer(),
+          $0.HelloReply.fromBuffer);
+  static final _$lotsOfGreetings =
+      $grpc.ClientMethod<$0.HelloRequest, $0.HelloReply>(
+          '/HelloService/lotsOfGreetings',
+          ($0.HelloRequest value) => value.writeToBuffer(),
+          $0.HelloReply.fromBuffer);
   static final _$bidiHello = $grpc.ClientMethod<$0.HelloRequest, $0.HelloReply>(
       '/HelloService/BidiHello',
       ($0.HelloRequest value) => value.writeToBuffer(),
@@ -103,20 +120,25 @@ abstract class HelloServiceBase extends $grpc.Service {
         ($0.HelloReply value) => value.writeToBuffer()));
   }
 
-  $async.Future<$0.HelloReply> sayHello_Pre($grpc.ServiceCall $call, $async.Future<$0.HelloRequest> $request) async {
+  $async.Future<$0.HelloReply> sayHello_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.HelloRequest> $request) async {
     return sayHello($call, await $request);
   }
 
-  $async.Future<$0.HelloReply> sayHello($grpc.ServiceCall call, $0.HelloRequest request);
+  $async.Future<$0.HelloReply> sayHello(
+      $grpc.ServiceCall call, $0.HelloRequest request);
 
-  $async.Stream<$0.HelloReply> lotsOfReplies_Pre($grpc.ServiceCall $call, $async.Future<$0.HelloRequest> $request) async* {
+  $async.Stream<$0.HelloReply> lotsOfReplies_Pre(
+      $grpc.ServiceCall $call, $async.Future<$0.HelloRequest> $request) async* {
     yield* lotsOfReplies($call, await $request);
   }
 
-  $async.Stream<$0.HelloReply> lotsOfReplies($grpc.ServiceCall call, $0.HelloRequest request);
+  $async.Stream<$0.HelloReply> lotsOfReplies(
+      $grpc.ServiceCall call, $0.HelloRequest request);
 
-  $async.Future<$0.HelloReply> lotsOfGreetings($grpc.ServiceCall call, $async.Stream<$0.HelloRequest> request);
+  $async.Future<$0.HelloReply> lotsOfGreetings(
+      $grpc.ServiceCall call, $async.Stream<$0.HelloRequest> request);
 
-  $async.Stream<$0.HelloReply> bidiHello($grpc.ServiceCall call, $async.Stream<$0.HelloRequest> request);
-
+  $async.Stream<$0.HelloReply> bidiHello(
+      $grpc.ServiceCall call, $async.Stream<$0.HelloRequest> request);
 }

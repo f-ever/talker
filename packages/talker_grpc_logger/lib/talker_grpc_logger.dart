@@ -1,3 +1,3 @@
-library talker_grpc_logger;
+library;
 
 export 'src/talker_grpc_logger_base.dart';

@@ -27,18 +27,25 @@ class HelloRequest extends $pb.GeneratedMessage {
 
   HelloRequest._();
 
-  factory HelloRequest.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory HelloRequest.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory HelloRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory HelloRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'HelloRequest', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'HelloRequest',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'greeting')
-    ..hasRequiredFields = false
-  ;
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   HelloRequest clone() => HelloRequest()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  HelloRequest copyWith(void Function(HelloRequest) updates) => super.copyWith((message) => updates(message as HelloRequest)) as HelloRequest;
+  HelloRequest copyWith(void Function(HelloRequest) updates) =>
+      super.copyWith((message) => updates(message as HelloRequest))
+          as HelloRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -47,9 +54,11 @@ class HelloRequest extends $pb.GeneratedMessage {
   static HelloRequest create() => HelloRequest._();
   @$core.override
   HelloRequest createEmptyInstance() => create();
-  static $pb.PbList<HelloRequest> createRepeated() => $pb.PbList<HelloRequest>();
+  static $pb.PbList<HelloRequest> createRepeated() =>
+      $pb.PbList<HelloRequest>();
   @$core.pragma('dart2js:noInline')
-  static HelloRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<HelloRequest>(create);
+  static HelloRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<HelloRequest>(create);
   static HelloRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -73,18 +82,24 @@ class HelloReply extends $pb.GeneratedMessage {
 
   HelloReply._();
 
-  factory HelloReply.fromBuffer($core.List<$core.int> data, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(data, registry);
-  factory HelloReply.fromJson($core.String json, [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(json, registry);
+  factory HelloReply.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory HelloReply.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'HelloReply', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'HelloReply',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'reply')
-    ..hasRequiredFields = false
-  ;
+    ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
   HelloReply clone() => HelloReply()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  HelloReply copyWith(void Function(HelloReply) updates) => super.copyWith((message) => updates(message as HelloReply)) as HelloReply;
+  HelloReply copyWith(void Function(HelloReply) updates) =>
+      super.copyWith((message) => updates(message as HelloReply)) as HelloReply;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
@@ -95,7 +110,8 @@ class HelloReply extends $pb.GeneratedMessage {
   HelloReply createEmptyInstance() => create();
   static $pb.PbList<HelloReply> createRepeated() => $pb.PbList<HelloReply>();
   @$core.pragma('dart2js:noInline')
-  static HelloReply getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<HelloReply>(create);
+  static HelloReply getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<HelloReply>(create);
   static HelloReply? _defaultInstance;
 
   @$pb.TagNumber(1)
@@ -108,6 +124,7 @@ class HelloReply extends $pb.GeneratedMessage {
   void clearReply() => $_clearField(1);
 }
 
-
-const $core.bool _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
-const $core.bool _omitMessageNames = $core.bool.fromEnvironment('protobuf.omit_message_names');
+const $core.bool _omitFieldNames =
+    $core.bool.fromEnvironment('protobuf.omit_field_names');
+const $core.bool _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');
